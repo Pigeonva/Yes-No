@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol CollectionViewCellViewModelType {
+protocol CollectionViewCellViewModelType: AnyObject {
     
 }

@@ -9,4 +9,9 @@ import Foundation
 
 class CollectionViewCellViewModel: CollectionViewCellViewModelType {
     
+    var category: Category
+    
+    init(category: Category) {
+        self.category = category
+    }
 }

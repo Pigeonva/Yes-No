@@ -8,10 +8,16 @@
 import Foundation
 
 class ViewModel: ViewModelType {
-    
-    var categories = [MainModel]()
+
+    var categories = [Category]()
     
     func numberOfItems() -> Int {
         return categories.count
+    }
+    
+    func cellViewModel(for indexPath: IndexPath) -> CollectionViewCellViewModelType? {
+        let category = categories[indexPath.row]
+        
+        return CollectionViewCellViewModel(category: category)
     }
 }

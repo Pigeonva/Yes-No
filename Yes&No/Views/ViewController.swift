@@ -50,7 +50,12 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.mainCollectionCell, for: indexPath) as? MainCollectionViewCell
+        guard let collectionViewCell = cell, let viewModel = viewModel else {return UICollectionViewCell()}
+        let cellViewModel = viewModel.cellViewModel(for: indexPath)
+        collectionViewCell.viewModel = cellViewModel
+        
+        return collectionViewCell
     }
     
     

@@ -8,5 +8,7 @@
 import Foundation
 
 protocol ViewModelType {
+    
     func numberOfItems() -> Int
+    func cellViewModel(for indexPath: IndexPath) -> CollectionViewCellViewModelType?
 }

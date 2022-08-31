@@ -9,4 +9,5 @@ import UIKit
 
 class MainCollectionViewCell: UICollectionViewCell {
 
+    weak var viewModel: CollectionViewCellViewModelType?
 }
