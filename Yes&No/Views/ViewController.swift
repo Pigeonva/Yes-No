@@ -16,9 +16,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel = ViewModel()
         view.backgroundColor = .systemCyan
         createMainCollectionView()
-        viewModel = ViewModel()
+        setConstraints()
     }
     
     func createMainCollectionView() {
@@ -36,6 +37,47 @@ class ViewController: UIViewController {
         mainCollectionView?.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: K.mainCollectionCell)
         
         view.addSubview(mainCollectionView!)
+    }
+    
+    //MARK: - Set constraints for UI elements
+    
+    func setConstraints() {
+        
+        // mainCollectionView constraints
+        
+        NSLayoutConstraint(item: mainCollectionView!,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: view,
+                           attribute: .top,
+                           multiplier: 1,
+                           constant: view.frame.height / 5).isActive = true
+        
+        NSLayoutConstraint(item: mainCollectionView!,
+                           attribute: .bottom,
+                           relatedBy: .equal,
+                           toItem: view,
+                           attribute: .bottom,
+                           multiplier: 1,
+                           constant: view.frame.height / 5).isActive = true
+        
+        NSLayoutConstraint(item: mainCollectionView!,
+                           attribute: .leading,
+                           relatedBy: .equal,
+                           toItem: view,
+                           attribute: .leading,
+                           multiplier: 1,
+                           constant: view.frame.height / 8).isActive = true
+        
+        NSLayoutConstraint(item: mainCollectionView!,
+                           attribute: .trailing,
+                           relatedBy: .equal,
+                           toItem: view,
+                           attribute: .trailing,
+                           multiplier: 1,
+                           constant: -view.frame.height / 8).isActive = true
+        
+        
     }
 
 
