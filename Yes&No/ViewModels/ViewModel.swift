@@ -9,6 +9,6 @@ import Foundation
 
 class ViewModel: ViewModelType {
     
-    
+    var categories = [MainModel]()
     
 }

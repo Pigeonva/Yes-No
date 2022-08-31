@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var viewModel: ViewModelType?
+    
     var mainCollectionView: UICollectionView?
 
     override func viewDidLoad() {
