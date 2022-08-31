@@ -7,6 +7,6 @@
 
 import Foundation
 
-class CollectionViewModel: CollectionViewModelType {
+class CollectionViewCellViewModel: CollectionViewCellViewModelType {
     
 }
