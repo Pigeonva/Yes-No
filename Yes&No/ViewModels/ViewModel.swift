@@ -11,4 +11,7 @@ class ViewModel: ViewModelType {
     
     var categories = [MainModel]()
     
+    func numberOfItems() -> Int {
+        return categories.count
+    }
 }

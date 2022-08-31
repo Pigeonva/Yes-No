@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         
         view.backgroundColor = .systemCyan
         createMainCollectionView()
+        viewModel = ViewModel()
     }
     
     func createMainCollectionView() {
@@ -45,7 +46,7 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        return viewModel?.numberOfItems() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
