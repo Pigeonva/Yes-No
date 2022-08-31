@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         mainCollectionView?.delegate = self
         mainCollectionView?.dataSource = self
         
-        mainCollectionView?.register(MainTableViewCell.self, forCellWithReuseIdentifier: K.mainCollectionCell)
+        mainCollectionView?.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: K.mainCollectionCell)
         
         view.addSubview(mainCollectionView!)
     }
