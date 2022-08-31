@@ -44,6 +44,7 @@ class ViewController: UIViewController {
     func setConstraints() {
         
         // mainCollectionView constraints
+        mainCollectionView?.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint(item: mainCollectionView!,
                            attribute: .top,
@@ -59,7 +60,7 @@ class ViewController: UIViewController {
                            toItem: view,
                            attribute: .bottom,
                            multiplier: 1,
-                           constant: view.frame.height / 5).isActive = true
+                           constant: -view.frame.height / 5).isActive = true
         
         NSLayoutConstraint(item: mainCollectionView!,
                            attribute: .leading,
@@ -67,7 +68,7 @@ class ViewController: UIViewController {
                            toItem: view,
                            attribute: .leading,
                            multiplier: 1,
-                           constant: view.frame.height / 8).isActive = true
+                           constant: view.frame.height / 15).isActive = true
         
         NSLayoutConstraint(item: mainCollectionView!,
                            attribute: .trailing,
@@ -75,7 +76,7 @@ class ViewController: UIViewController {
                            toItem: view,
                            attribute: .trailing,
                            multiplier: 1,
-                           constant: -view.frame.height / 8).isActive = true
+                           constant: -view.frame.height / 15).isActive = true
         
         
     }
