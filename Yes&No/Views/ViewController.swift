@@ -15,9 +15,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemCyan
+        createMainCollectionView()
     }
     
-    func createMaincollectionView() {
+    func createMainCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 5
