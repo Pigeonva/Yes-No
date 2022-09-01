@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.frame = CGRect(x: 0, y: 0, width: 100, height: 20)
-        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
         label.text = "Категории"
         label.adjustsFontSizeToFitWidth = true
         
@@ -143,7 +143,7 @@ class ViewController: UIViewController {
                            toItem: mainCollectionView,
                            attribute: .top,
                            multiplier: 1,
-                           constant: -view.frame.height / 12).isActive = true
+                           constant: -view.frame.height / 10).isActive = true
         
         NSLayoutConstraint(item: titleLabel,
                            attribute: .centerX,
