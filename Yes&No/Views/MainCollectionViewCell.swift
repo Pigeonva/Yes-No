@@ -39,7 +39,7 @@ class MainCollectionViewCell: UICollectionViewCell {
         label.frame = CGRect(x: 0, y: 0, width: 100, height: 20)
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         label.numberOfLines = 0
-        label.text = "This description tells about something interesting"
+        label.text = "This description tells about something interesting tcyfvugbi hnojszrdxtf cygvuhbijkl xtcyvgubhinm xtcyvgubhin erxtcfyvgubhiji "
         
         return label
     }()
@@ -63,9 +63,17 @@ class MainCollectionViewCell: UICollectionViewCell {
     
     func setConstraints() {
         imageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -contentView.frame.height/2).isActive = true
+        
+        titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: contentView.frame.height/20).isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        
+        descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: contentView.frame.height/25).isActive = true
+        descriptionLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        descriptionLabel.widthAnchor.constraint(equalToConstant: contentView.frame.width).isActive = true
+        descriptionLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
     
 }

@@ -47,12 +47,14 @@ class ViewController: UIViewController {
     
     func createMainCollectionView() {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 5
-        layout.minimumInteritemSpacing = 5
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: (view.frame.size.width/3),
                                  height: (view.frame.size.width)/2)
         mainCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        mainCollectionView?.isPagingEnabled = true
+        mainCollectionView?.backgroundColor = .systemCyan
         guard let mainCollectionView = mainCollectionView else {return}
         mainCollectionView.layer.cornerRadius = 10
         mainCollectionView.delegate = self
