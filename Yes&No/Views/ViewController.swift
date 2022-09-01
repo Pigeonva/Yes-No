@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         layout.minimumInteritemSpacing = 5
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: (view.frame.size.width/3),
-                                 height: (view.frame.size.width/2))
+                                 height: (view.frame.size.width)/2)
         mainCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         guard let mainCollectionView = mainCollectionView else {return}
         mainCollectionView.layer.cornerRadius = 10
@@ -175,4 +175,12 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     
+}
+
+//MARK: - UICollectionViewDelegateFlowLayout
+
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (mainCollectionView?.frame.width)!, height: (mainCollectionView?.frame.height)!)
+    }
 }
