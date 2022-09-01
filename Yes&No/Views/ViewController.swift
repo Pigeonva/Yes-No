@@ -11,6 +11,17 @@ class ViewController: UIViewController {
     
     var viewModel: ViewModelType?
     
+    let backgroundImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: K.backgroundImage)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        
+        return imageView
+    }()
+    
     var mainCollectionView: UICollectionView?
     
     let titleLabel: UILabel = {
@@ -28,7 +39,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         viewModel = ViewModel()
-        view.backgroundColor = .systemCyan
+        view.addSubview(backgroundImageView)
         createMainCollectionView()
         view.addSubview(titleLabel)
         setConstraints()
@@ -54,7 +65,42 @@ class ViewController: UIViewController {
     
     func setConstraints() {
         
+        // backgroundImageView constraints
+        
+        NSLayoutConstraint(item: backgroundImageView,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: view,
+                           attribute: .top,
+                           multiplier: 1,
+                           constant: 0).isActive = true
+        
+        NSLayoutConstraint(item: backgroundImageView,
+                           attribute: .bottom,
+                           relatedBy: .equal,
+                           toItem: view,
+                           attribute: .bottom,
+                           multiplier: 1,
+                           constant: 0).isActive = true
+        
+        NSLayoutConstraint(item: backgroundImageView,
+                           attribute: .leading,
+                           relatedBy: .equal,
+                           toItem: view,
+                           attribute: .leading,
+                           multiplier: 1,
+                           constant: 0).isActive = true
+        
+        NSLayoutConstraint(item: backgroundImageView,
+                           attribute: .trailing,
+                           relatedBy: .equal,
+                           toItem: view,
+                           attribute: .trailing,
+                           multiplier: 1,
+                           constant: 0).isActive = true
+        
         // mainCollectionView constraints
+        
         mainCollectionView?.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint(item: mainCollectionView!,
