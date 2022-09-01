@@ -11,13 +11,24 @@ class ViewController: UIViewController {
     
     var viewModel: ViewModelType?
     
+    let backgroundImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: K.backgroundImage)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        
+        return imageView
+    }()
+    
     var mainCollectionView: UICollectionView?
     
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.frame = CGRect(x: 0, y: 0, width: 100, height: 20)
-        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
         label.text = "Категории"
         label.adjustsFontSizeToFitWidth = true
         
@@ -28,7 +39,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         viewModel = ViewModel()
-        view.backgroundColor = .systemCyan
+        view.addSubview(backgroundImageView)
         createMainCollectionView()
         view.addSubview(titleLabel)
         setConstraints()
@@ -36,12 +47,14 @@ class ViewController: UIViewController {
     
     func createMainCollectionView() {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 5
-        layout.minimumInteritemSpacing = 5
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: (view.frame.size.width/3),
-                                 height: (view.frame.size.width/2))
+                                 height: (view.frame.size.width)/2)
         mainCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        mainCollectionView?.isPagingEnabled = true
+        mainCollectionView?.backgroundColor = .systemCyan
         guard let mainCollectionView = mainCollectionView else {return}
         mainCollectionView.layer.cornerRadius = 10
         mainCollectionView.delegate = self
@@ -54,7 +67,42 @@ class ViewController: UIViewController {
     
     func setConstraints() {
         
+        // backgroundImageView constraints
+        
+        NSLayoutConstraint(item: backgroundImageView,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: view,
+                           attribute: .top,
+                           multiplier: 1,
+                           constant: 0).isActive = true
+        
+        NSLayoutConstraint(item: backgroundImageView,
+                           attribute: .bottom,
+                           relatedBy: .equal,
+                           toItem: view,
+                           attribute: .bottom,
+                           multiplier: 1,
+                           constant: 0).isActive = true
+        
+        NSLayoutConstraint(item: backgroundImageView,
+                           attribute: .leading,
+                           relatedBy: .equal,
+                           toItem: view,
+                           attribute: .leading,
+                           multiplier: 1,
+                           constant: 0).isActive = true
+        
+        NSLayoutConstraint(item: backgroundImageView,
+                           attribute: .trailing,
+                           relatedBy: .equal,
+                           toItem: view,
+                           attribute: .trailing,
+                           multiplier: 1,
+                           constant: 0).isActive = true
+        
         // mainCollectionView constraints
+        
         mainCollectionView?.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint(item: mainCollectionView!,
@@ -97,7 +145,7 @@ class ViewController: UIViewController {
                            toItem: mainCollectionView,
                            attribute: .top,
                            multiplier: 1,
-                           constant: -view.frame.height / 12).isActive = true
+                           constant: -view.frame.height / 10).isActive = true
         
         NSLayoutConstraint(item: titleLabel,
                            attribute: .centerX,
@@ -129,4 +177,12 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     
+}
+
+//MARK: - UICollectionViewDelegateFlowLayout
+
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (mainCollectionView?.frame.width)!, height: (mainCollectionView?.frame.height)!)
+    }
 }

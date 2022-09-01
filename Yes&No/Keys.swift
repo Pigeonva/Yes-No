@@ -10,4 +10,5 @@ import Foundation
 struct K {
     
     static let mainCollectionCell = "cell"
+    static let backgroundImage = "background"
 }

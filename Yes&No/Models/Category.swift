@@ -9,7 +9,7 @@ import UIKit
 
 struct Category {
     
-    let image: UIImage
+    let image: UIImage?
     let title: String
     let dedcription: String
     
