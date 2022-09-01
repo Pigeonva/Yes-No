@@ -12,6 +12,17 @@ class ViewController: UIViewController {
     var viewModel: ViewModelType?
     
     var mainCollectionView: UICollectionView?
+    
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.frame = CGRect(x: 0, y: 0, width: 100, height: 20)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        label.text = "Категории"
+        label.adjustsFontSizeToFitWidth = true
+        
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +30,7 @@ class ViewController: UIViewController {
         viewModel = ViewModel()
         view.backgroundColor = .systemCyan
         createMainCollectionView()
+        view.addSubview(titleLabel)
         setConstraints()
     }
     
@@ -30,13 +42,12 @@ class ViewController: UIViewController {
         layout.itemSize = CGSize(width: (view.frame.size.width/3),
                                  height: (view.frame.size.width/2))
         mainCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        
-        mainCollectionView?.delegate = self
-        mainCollectionView?.dataSource = self
-        
-        mainCollectionView?.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: K.mainCollectionCell)
-        
-        view.addSubview(mainCollectionView!)
+        guard let mainCollectionView = mainCollectionView else {return}
+        mainCollectionView.layer.cornerRadius = 10
+        mainCollectionView.delegate = self
+        mainCollectionView.dataSource = self
+        mainCollectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: K.mainCollectionCell)
+        view.addSubview(mainCollectionView)
     }
     
     //MARK: - Set constraints for UI elements
@@ -78,7 +89,23 @@ class ViewController: UIViewController {
                            multiplier: 1,
                            constant: -view.frame.height / 15).isActive = true
         
+        // title label constraints
         
+        NSLayoutConstraint(item: titleLabel,
+                           attribute: .bottom,
+                           relatedBy: .equal,
+                           toItem: mainCollectionView,
+                           attribute: .top,
+                           multiplier: 1,
+                           constant: -view.frame.height / 12).isActive = true
+        
+        NSLayoutConstraint(item: titleLabel,
+                           attribute: .centerX,
+                           relatedBy: .equal,
+                           toItem: view,
+                           attribute: .centerX,
+                           multiplier: 1,
+                           constant: 0).isActive = true
     }
 
 
