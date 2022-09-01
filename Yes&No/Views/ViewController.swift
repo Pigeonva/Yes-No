@@ -30,13 +30,12 @@ class ViewController: UIViewController {
         layout.itemSize = CGSize(width: (view.frame.size.width/3),
                                  height: (view.frame.size.width/2))
         mainCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        
-        mainCollectionView?.delegate = self
-        mainCollectionView?.dataSource = self
-        
-        mainCollectionView?.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: K.mainCollectionCell)
-        
-        view.addSubview(mainCollectionView!)
+        guard let mainCollectionView = mainCollectionView else {return}
+        mainCollectionView.layer.cornerRadius = 10
+        mainCollectionView.delegate = self
+        mainCollectionView.dataSource = self
+        mainCollectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: K.mainCollectionCell)
+        view.addSubview(mainCollectionView)
     }
     
     //MARK: - Set constraints for UI elements
