@@ -11,4 +11,7 @@ struct K {
     
     static let mainCollectionCell = "cell"
     static let backgroundImage = "background"
+    static let easyImage = "easy"
+    static let mediumImage = "medium"
+    static let hardImage = "hard"
 }
