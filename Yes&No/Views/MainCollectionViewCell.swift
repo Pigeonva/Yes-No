@@ -9,7 +9,14 @@ import UIKit
 
 class MainCollectionViewCell: UICollectionViewCell {
 
-    weak var viewModel: CollectionViewCellViewModelType?
+    weak var viewModel: CollectionViewCellViewModelType? {
+        willSet(viewModel) {
+            guard let viewModel = viewModel else {return}
+            imageView.image = viewModel.image
+            titleLabel.text = viewModel.title
+            descriptionLabel.text = viewModel.description
+        }
+    }
     
     let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -26,9 +33,8 @@ class MainCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.frame = CGRect(x: 0, y: 0, width: 100, height: 20)
-        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
         label.numberOfLines = 0
-        label.text = "Title"
         
         return label
     }()
@@ -37,9 +43,8 @@ class MainCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.frame = CGRect(x: 0, y: 0, width: 100, height: 20)
-        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         label.numberOfLines = 0
-        label.text = "This description tells about something interesting tcyfvugbi hnojszrdxtf cygvuhbijkl xtcyvgubhinm xtcyvgubhin erxtcfyvgubhiji "
         
         return label
     }()
@@ -69,11 +74,11 @@ class MainCollectionViewCell: UICollectionViewCell {
         
         titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: contentView.frame.height/20).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        titleLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: contentView.frame.height/25).isActive = true
-        descriptionLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        descriptionLabel.widthAnchor.constraint(equalToConstant: contentView.frame.width).isActive = true
-        descriptionLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: contentView.frame.width/15).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -contentView.frame.width/15).isActive = true
     }
     
 }

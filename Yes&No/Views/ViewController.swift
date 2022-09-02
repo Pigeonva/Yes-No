@@ -54,7 +54,7 @@ class ViewController: UIViewController {
                                  height: (view.frame.size.width)/2)
         mainCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         mainCollectionView?.isPagingEnabled = true
-        mainCollectionView?.backgroundColor = .systemCyan
+        mainCollectionView?.backgroundColor = .systemPurple
         guard let mainCollectionView = mainCollectionView else {return}
         mainCollectionView.layer.cornerRadius = 10
         mainCollectionView.delegate = self
@@ -111,7 +111,7 @@ class ViewController: UIViewController {
                            toItem: view,
                            attribute: .top,
                            multiplier: 1,
-                           constant: view.frame.height / 5).isActive = true
+                           constant: view.frame.height / 6).isActive = true
         
         NSLayoutConstraint(item: mainCollectionView!,
                            attribute: .bottom,
@@ -119,7 +119,7 @@ class ViewController: UIViewController {
                            toItem: view,
                            attribute: .bottom,
                            multiplier: 1,
-                           constant: -view.frame.height / 5).isActive = true
+                           constant: -view.frame.height / 6).isActive = true
         
         NSLayoutConstraint(item: mainCollectionView!,
                            attribute: .leading,
@@ -127,7 +127,7 @@ class ViewController: UIViewController {
                            toItem: view,
                            attribute: .leading,
                            multiplier: 1,
-                           constant: view.frame.height / 15).isActive = true
+                           constant: view.frame.width / 10).isActive = true
         
         NSLayoutConstraint(item: mainCollectionView!,
                            attribute: .trailing,
@@ -135,7 +135,7 @@ class ViewController: UIViewController {
                            toItem: view,
                            attribute: .trailing,
                            multiplier: 1,
-                           constant: -view.frame.height / 15).isActive = true
+                           constant: -view.frame.width / 10).isActive = true
         
         // title label constraints
         
@@ -145,7 +145,7 @@ class ViewController: UIViewController {
                            toItem: mainCollectionView,
                            attribute: .top,
                            multiplier: 1,
-                           constant: -view.frame.height / 10).isActive = true
+                           constant: -view.frame.height / 15).isActive = true
         
         NSLayoutConstraint(item: titleLabel,
                            attribute: .centerX,
