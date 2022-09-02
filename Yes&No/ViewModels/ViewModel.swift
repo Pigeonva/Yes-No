@@ -9,9 +9,9 @@ import UIKit
 
 class ViewModel: ViewModelType {
 
-    var categories = [Category(image: UIImage(named: K.backgroundImage), title: "Hello", dedcription: "World"),
-                      Category(image: UIImage(named: K.backgroundImage), title: "Hello", dedcription: "World"),
-                      Category(image: UIImage(named: K.backgroundImage), title: "Hello", dedcription: "World")]
+    var categories = [Category(image: UIImage(named: K.backgroundImage), title: "Простые истории", dedcription: "World"),
+                      Category(image: UIImage(named: K.backgroundImage), title: "Непростые истории", dedcription: "World"),
+                      Category(image: UIImage(named: K.backgroundImage), title: "Сложные истории", dedcription: "World")]
     
     func numberOfItems() -> Int {
         return categories.count

@@ -9,7 +9,13 @@ import UIKit
 
 class MainCollectionViewCell: UICollectionViewCell {
 
-    weak var viewModel: CollectionViewCellViewModelType?
+    weak var viewModel: CollectionViewCellViewModelType? {
+        willSet(viewModel) {
+            guard let viewModel = viewModel else {return}
+            titleLabel.text = viewModel.title
+            descriptionLabel.text = viewModel.description
+        }
+    }
     
     let imageView: UIImageView = {
         let imageView = UIImageView()
