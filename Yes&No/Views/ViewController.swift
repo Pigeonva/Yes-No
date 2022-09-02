@@ -175,8 +175,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         return collectionViewCell
     }
-    
-    
 }
 
 //MARK: - UICollectionViewDelegateFlowLayout
