@@ -9,5 +9,7 @@ import UIKit
 
 protocol TableViewCellViewModelType: AnyObject {
     
+    var image: UIImage {get}
+    var title: String {get}
 }
 

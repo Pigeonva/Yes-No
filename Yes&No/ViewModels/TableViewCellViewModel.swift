@@ -9,10 +9,18 @@ import UIKit
 
 class TableViewCellViewModel: TableViewCellViewModelType {
     
-    var story: Story
+    var oneStory: Story
+    
+    var image: UIImage {
+        return oneStory.image
+    }
+    
+    var title: String {
+        return oneStory.title
+    }
     
     init(story: Story) {
-        self.story = story
+        self.oneStory = story
     }
     
 }
