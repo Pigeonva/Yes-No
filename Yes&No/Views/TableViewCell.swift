@@ -11,7 +11,8 @@ class TableViewCell: UITableViewCell {
     
     weak var viewModel: TableViewCellViewModelType? {
         didSet {
-            
+            guard let viewModel = viewModel else {return}
+            nameLabel.text = viewModel.title
         }
     }
 
