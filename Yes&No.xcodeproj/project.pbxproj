@@ -23,6 +23,7 @@
 		35284DFB28C27352007458E7 /* TableViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35284DFA28C27352007458E7 /* TableViewModelType.swift */; };
 		35284DFD28C27369007458E7 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35284DFC28C27369007458E7 /* TableViewModel.swift */; };
 		35284DFF28C274D1007458E7 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35284DFE28C274D1007458E7 /* Story.swift */; };
+		35284E0128C39833007458E7 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35284E0028C39833007458E7 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		35284DFA28C27352007458E7 /* TableViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModelType.swift; sourceTree = "<group>"; };
 		35284DFC28C27369007458E7 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
 		35284DFE28C274D1007458E7 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		35284E0028C39833007458E7 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				35284DB028BE674A007458E7 /* ViewController.swift */,
 				35284DE628BFC104007458E7 /* MainCollectionViewCell.swift */,
 				35284DF828C270A2007458E7 /* TableViewController.swift */,
+				35284E0028C39833007458E7 /* TableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35284E0128C39833007458E7 /* TableViewCell.swift in Sources */,
 				35284DB128BE674A007458E7 /* ViewController.swift in Sources */,
 				35284DAD28BE674A007458E7 /* AppDelegate.swift in Sources */,
 				35284DAF28BE674A007458E7 /* SceneDelegate.swift in Sources */,
