@@ -26,7 +26,7 @@ class TableViewCell: UITableViewCell {
         return imageView
     }()
     
-    let titleLabel: UILabel = {
+    let nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.frame = CGRect(x: 0, y: 0, width: 100, height: 20)
@@ -36,4 +36,16 @@ class TableViewCell: UITableViewCell {
         return label
     }()
 
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        backgroundColor = .systemPurple
+        addSubview(cellImageView)
+        addSubview(nameLabel)
+    }
+    
+    required init?(coder: NSCoder) {
+        
+        fatalError("init(coder:) has not been implemented")
+    }
 }
