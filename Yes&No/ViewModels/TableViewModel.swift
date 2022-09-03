@@ -15,4 +15,7 @@ class TableViewModel: TableViewModelType {
         self.stories = stories
     }
     
+    func numberOfRows() -> Int {
+        return stories.count
+    }
 }

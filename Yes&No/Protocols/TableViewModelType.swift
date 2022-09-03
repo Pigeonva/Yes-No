@@ -8,5 +8,5 @@
 import UIKit
 
 protocol TableViewModelType {
-    
+    func numberOfRows() -> Int
 }
