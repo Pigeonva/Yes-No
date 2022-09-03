@@ -22,6 +22,7 @@ class TableViewCell: UITableViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.backgroundColor = .black
+        imageView.layer.cornerRadius = 10
         
         return imageView
     }()
@@ -42,10 +43,27 @@ class TableViewCell: UITableViewCell {
         backgroundColor = .systemPurple
         addSubview(cellImageView)
         addSubview(nameLabel)
+        setConstraints()
     }
     
     required init?(coder: NSCoder) {
         
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setConstraints() {
+        
+        // cellImageView constraints
+        
+        cellImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        cellImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+        cellImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        cellImageView.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        
+        // nameLabel constraints
+        
+        nameLabel.leadingAnchor.constraint(equalTo: cellImageView.trailingAnchor, constant: contentView.frame.height/2).isActive = true
+        nameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
     }
 }
