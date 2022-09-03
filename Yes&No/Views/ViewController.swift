@@ -38,6 +38,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.tintColor = .black
         viewModel = ViewModel()
         view.addSubview(backgroundImageView)
         createMainCollectionView()

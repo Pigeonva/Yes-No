@@ -15,4 +15,14 @@ class TableViewModel: TableViewModelType {
         self.stories = stories
     }
     
+    func numberOfRows() -> Int {
+        return stories.count
+    }
+    
+    func cellViewModel(for indexPath: IndexPath) -> TableViewCellViewModelType? {
+        let story = stories[indexPath.row]
+        
+        return TableViewCellViewModel(story: story)
+    }
+    
 }

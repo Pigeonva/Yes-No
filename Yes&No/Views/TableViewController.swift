@@ -13,19 +13,25 @@ class TableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .systemCyan
+        tableView.register(TableViewCell.self, forCellReuseIdentifier: K.tableViewCell)
+        tableView.rowHeight = 120
+        
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return viewModel?.numberOfRows() ?? 0
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.tableViewCell, for: indexPath) as? TableViewCell
+        guard let cell = cell, let viewModel = viewModel else {return UITableViewCell()}
+        cell.viewModel = viewModel.cellViewModel(for: indexPath)
+        
+        return cell 
     }
 
 }

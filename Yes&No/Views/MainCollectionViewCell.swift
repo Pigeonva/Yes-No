@@ -24,7 +24,6 @@ class MainCollectionViewCell: UICollectionViewCell {
         imageView.backgroundColor = .clear
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .black
         
         return imageView
     }()

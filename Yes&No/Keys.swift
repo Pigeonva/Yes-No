@@ -14,4 +14,5 @@ struct K {
     static let easyImage = "easy"
     static let mediumImage = "medium"
     static let hardImage = "hard"
+    static let tableViewCell = "tableCell"
 }
