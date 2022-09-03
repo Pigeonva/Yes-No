@@ -24,6 +24,8 @@
 		35284DFD28C27369007458E7 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35284DFC28C27369007458E7 /* TableViewModel.swift */; };
 		35284DFF28C274D1007458E7 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35284DFE28C274D1007458E7 /* Story.swift */; };
 		35284E0128C39833007458E7 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35284E0028C39833007458E7 /* TableViewCell.swift */; };
+		35284E0328C39919007458E7 /* TableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35284E0228C39919007458E7 /* TableViewCellViewModel.swift */; };
+		35284E0528C3997F007458E7 /* TableViewCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35284E0428C3997F007458E7 /* TableViewCellViewModelType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		35284DFC28C27369007458E7 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
 		35284DFE28C274D1007458E7 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		35284E0028C39833007458E7 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		35284E0228C39919007458E7 /* TableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModel.swift; sourceTree = "<group>"; };
+		35284E0428C3997F007458E7 /* TableViewCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModelType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 				35284DEC28BFC2A5007458E7 /* ViewModel.swift */,
 				35284DF128BFC801007458E7 /* CollectionViewCellViewModel.swift */,
 				35284DFC28C27369007458E7 /* TableViewModel.swift */,
+				35284E0228C39919007458E7 /* TableViewCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 				35284DEF28BFC32B007458E7 /* ViewModelType.swift */,
 				35284DF328BFC86F007458E7 /* CollectionViewCellViewModelType.swift */,
 				35284DFA28C27352007458E7 /* TableViewModelType.swift */,
+				35284E0428C3997F007458E7 /* TableViewCellViewModelType.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -204,10 +210,12 @@
 			files = (
 				35284E0128C39833007458E7 /* TableViewCell.swift in Sources */,
 				35284DB128BE674A007458E7 /* ViewController.swift in Sources */,
+				35284E0528C3997F007458E7 /* TableViewCellViewModelType.swift in Sources */,
 				35284DAD28BE674A007458E7 /* AppDelegate.swift in Sources */,
 				35284DAF28BE674A007458E7 /* SceneDelegate.swift in Sources */,
 				35284DF028BFC32B007458E7 /* ViewModelType.swift in Sources */,
 				35284DE728BFC104007458E7 /* MainCollectionViewCell.swift in Sources */,
+				35284E0328C39919007458E7 /* TableViewCellViewModel.swift in Sources */,
 				35284DFB28C27352007458E7 /* TableViewModelType.swift in Sources */,
 				35284DF728BFCC53007458E7 /* Category.swift in Sources */,
 				35284DF928C270A2007458E7 /* TableViewController.swift in Sources */,
