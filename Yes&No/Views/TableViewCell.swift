@@ -41,6 +41,9 @@ class TableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         backgroundColor = .systemPurple
+        let background = UIView()
+        background.backgroundColor = .systemPurple
+        selectedBackgroundView = background
         addSubview(cellImageView)
         addSubview(nameLabel)
         setConstraints()
