@@ -177,7 +177,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       
+        guard let viewModel = viewModel else {return}
+        viewModel.selectRow(at: indexPath)
+        let tableVC = TableViewController()
+        tableVC.viewModel = viewModel.viewModelForSelectedRow()
+        navigationController?.pushViewController(tableVC, animated: true)
     }
 }
 
