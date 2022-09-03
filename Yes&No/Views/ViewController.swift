@@ -175,6 +175,10 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         return collectionViewCell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       
+    }
 }
 
 //MARK: - UICollectionViewDelegateFlowLayout
