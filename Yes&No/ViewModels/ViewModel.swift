@@ -8,6 +8,8 @@
 import UIKit
 
 class ViewModel: ViewModelType {
+    
+    private var selectedIndexPath: IndexPath?
 
     var categories = [Category(image: UIImage(named: K.easyImage),
                                title: "Для новичков",
@@ -34,10 +36,12 @@ class ViewModel: ViewModelType {
     }
     
     func viewModelForSelectedRow() -> TableViewModelType? {
-        <#code#>
+        guard let selectedIndexPath = selectedIndexPath else {return nil}
+        
+        return TableViewModel(stories: stories[selectedIndexPath.row])
     }
     
     func selectRow(at indexPath: IndexPath) {
-        <#code#>
+        self.selectedIndexPath = indexPath
     }
 }

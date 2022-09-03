@@ -9,6 +9,10 @@ import UIKit
 
 class TableViewModel: TableViewModelType {
     
+    var stories: Array<Story>
     
+    init(stories: Array<Story>) {
+        self.stories = stories
+    }
     
 }
