@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol TableViewCellViewModelType {
+protocol TableViewCellViewModelType: AnyObject {
     
 }
 

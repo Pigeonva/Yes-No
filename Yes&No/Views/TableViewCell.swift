@@ -8,6 +8,12 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
+    
+    weak var viewModel: TableViewCellViewModelType? {
+        didSet {
+            
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

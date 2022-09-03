@@ -9,4 +9,10 @@ import UIKit
 
 class TableViewCellViewModel: TableViewCellViewModelType {
     
+    var story: Story
+    
+    init(story: Story) {
+        self.story = story
+    }
+    
 }

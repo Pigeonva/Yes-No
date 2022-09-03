@@ -8,5 +8,7 @@
 import UIKit
 
 protocol TableViewModelType {
+    
     func numberOfRows() -> Int
+    func cellViewModel(for indexPath: IndexPath) -> TableViewCellViewModelType?
 }

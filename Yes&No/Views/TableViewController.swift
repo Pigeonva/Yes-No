@@ -25,7 +25,11 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.tableViewCell, for: indexPath) as? TableViewCell
+        guard let cell = cell, let viewModel = viewModel else {return UITableViewCell()}
+        cell.viewModel = viewModel.cellViewModel(for: indexPath)
+        
+        return cell 
     }
 
 }
