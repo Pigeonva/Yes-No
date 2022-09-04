@@ -46,7 +46,7 @@ class TableViewCell: UITableViewCell {
         stack.spacing = 20.0
         stack.alignment = .leading
         stack.distribution = .fillProportionally
-        stack.backgroundColor = .systemIndigo
+        stack.backgroundColor = .systemCyan
         stack.layer.cornerRadius = 10
         
         return stack
@@ -55,9 +55,9 @@ class TableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = .systemCyan
+        backgroundColor = .systemPurple
         let background = UIView()
-        background.backgroundColor = .systemCyan
+        background.backgroundColor = .systemPurple
         selectedBackgroundView = background
         stackView.addArrangedSubview(cellImageView)
         stackView.addArrangedSubview(nameLabel)
