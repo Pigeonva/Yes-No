@@ -12,6 +12,7 @@ class TableViewCell: UITableViewCell {
     weak var viewModel: TableViewCellViewModelType? {
         didSet {
             guard let viewModel = viewModel else {return}
+            cellImageView.image = viewModel.image
             nameLabel.text = viewModel.title
         }
     }
@@ -37,6 +38,19 @@ class TableViewCell: UITableViewCell {
         
         return label
     }()
+    
+    let stackView: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.spacing = 20.0
+        stack.alignment = .leading
+        stack.distribution = .fillProportionally
+        stack.backgroundColor = .systemCyan
+        stack.layer.cornerRadius = 10
+        
+        return stack
+    }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -45,8 +59,9 @@ class TableViewCell: UITableViewCell {
         let background = UIView()
         background.backgroundColor = .systemPurple
         selectedBackgroundView = background
-        addSubview(cellImageView)
-        addSubview(nameLabel)
+        stackView.addArrangedSubview(cellImageView)
+        stackView.addArrangedSubview(nameLabel)
+        addSubview(stackView)
         setConstraints()
     }
     
@@ -59,15 +74,16 @@ class TableViewCell: UITableViewCell {
         
         // cellImageView constraints
         
-        cellImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        cellImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
-        cellImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         cellImageView.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        cellImageView.heightAnchor.constraint(equalTo: cellImageView.widthAnchor).isActive = true
         
-        // nameLabel constraints
+        // stackView constraints
         
-        nameLabel.leadingAnchor.constraint(equalTo: cellImageView.trailingAnchor, constant: contentView.frame.height/2).isActive = true
+        stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
+        
         nameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
     }
 }

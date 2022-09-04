@@ -13,9 +13,9 @@ class TableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemCyan
+        view.backgroundColor = .systemPurple
         tableView.register(TableViewCell.self, forCellReuseIdentifier: K.tableViewCell)
-        tableView.rowHeight = 120
+        tableView.rowHeight = 140
         
     }
 
