@@ -12,6 +12,7 @@ class TableViewCell: UITableViewCell {
     weak var viewModel: TableViewCellViewModelType? {
         didSet {
             guard let viewModel = viewModel else {return}
+            cellImageView.image = viewModel.image
             nameLabel.text = viewModel.title
         }
     }
@@ -45,7 +46,7 @@ class TableViewCell: UITableViewCell {
         stack.spacing = 20.0
         stack.alignment = .leading
         stack.distribution = .fillProportionally
-        stack.backgroundColor = .systemPurple
+        stack.backgroundColor = .systemIndigo
         stack.layer.cornerRadius = 10
         
         return stack
