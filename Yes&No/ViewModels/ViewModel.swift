@@ -21,9 +21,21 @@ class ViewModel: ViewModelType {
                                title: "Первоклассный детектив",
                                dedcription: "  Самые сложные и запутанные истории в которых вам придется изрядно поломать голову. Могу только пожелать вам удачи!")]
     
-    var stories = [[Story(image: UIImage(), title: "easy", story: "easy", answer: "easy")],
-                   [Story(image: UIImage(), title: "medium", story: "medium", answer: "medium")],
-                   [Story(image: UIImage(), title: "hard", story: "hard", answer: "hard")]]
+    var stories = [[Story(image: UIImage(named: K.easyOne)!, title: "easy", story: "easy", answer: "easy"),
+                    Story(image: UIImage(named: K.easyTwo)!, title: "easy", story: "easy", answer: "easy"),
+                    Story(image: UIImage(named: K.easyThree)!, title: "easy", story: "easy", answer: "easy"),
+                    Story(image: UIImage(named: K.easyFour)!, title: "easy", story: "easy", answer: "easy"),
+                    Story(image: UIImage(named: K.easyFive)!, title: "easy", story: "easy", answer: "easy")],
+                   [Story(image: UIImage(named: K.mediumOne)!, title: "medium", story: "medium", answer: "medium"),
+                    Story(image: UIImage(named: K.mediumTwo)!, title: "medium", story: "medium", answer: "medium"),
+                    Story(image: UIImage(named: K.mediumThree)!, title: "medium", story: "medium", answer: "medium"),
+                    Story(image: UIImage(named: K.mediumFour)!, title: "medium", story: "medium", answer: "medium"),
+                    Story(image: UIImage(named: K.mediumFive)!, title: "medium", story: "medium", answer: "medium")],
+                   [Story(image: UIImage(named: K.hardOne)!, title: "hard", story: "hard", answer: "hard"),
+                    Story(image: UIImage(named: K.hardTwo)!, title: "hard", story: "hard", answer: "hard"),
+                    Story(image: UIImage(named: K.hardThree)!, title: "hard", story: "hard", answer: "hard"),
+                    Story(image: UIImage(named: K.hardFour)!, title: "hard", story: "hard", answer: "hard"),
+                    Story(image: UIImage(named: K.hardFive)!, title: "hard", story: "hard", answer: "hard")]]
     
     func numberOfItems() -> Int {
         return categories.count

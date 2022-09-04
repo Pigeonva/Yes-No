@@ -15,7 +15,7 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemCyan
         tableView.register(TableViewCell.self, forCellReuseIdentifier: K.tableViewCell)
-        tableView.rowHeight = 120
+        tableView.rowHeight = 140
         
     }
 
