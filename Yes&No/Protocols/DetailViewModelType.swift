@@ -9,4 +9,8 @@ import Foundation
 
 protocol DetailViewModelType {
     
+    var title: String {get}
+    var oneStory: String {get}
+    var answer: String {get}
+    
 }

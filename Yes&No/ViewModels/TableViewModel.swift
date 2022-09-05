@@ -11,6 +11,8 @@ class TableViewModel: TableViewModelType {
     
     var stories: Array<Story>
     
+    private var selectedIndexPath: IndexPath?
+    
     init(stories: Array<Story>) {
         self.stories = stories
     }
@@ -24,5 +26,16 @@ class TableViewModel: TableViewModelType {
         
         return TableViewCellViewModel(story: story)
     }
+    
+    func viewModelForSelectedRow() -> DetailViewModelType? {
+        guard let selectedIndexPath = selectedIndexPath else {return nil}
+
+        return DetailViewModel(story: stories[selectedIndexPath.row])
+    }
+    
+    func selectRow(at indexPath: IndexPath) {
+        self.selectedIndexPath = indexPath
+    }
+    
     
 }
