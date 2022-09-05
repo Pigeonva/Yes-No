@@ -30,4 +30,5 @@ struct K {
     static let hardThree = "hard3"
     static let hardFour = "hard4"
     static let hardFive = "hard5"
+    static let detailBackground = "detailBackground"
 }

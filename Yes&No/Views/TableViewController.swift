@@ -33,5 +33,13 @@ class TableViewController: UITableViewController {
         
         return cell 
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let viewModel = viewModel else {return}
+        viewModel.selectRow(at: indexPath)
+        let detailVC = DetailViewController()
+        detailVC.viewModel = viewModel.viewModelForSelectedRow()
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 
 }
