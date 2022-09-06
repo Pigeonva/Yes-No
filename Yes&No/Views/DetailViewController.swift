@@ -11,17 +11,6 @@ class DetailViewController: UIViewController {
     
     var viewModel: DetailViewModelType?
     
-    let backgroundImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: K.detailBackground)
-        imageView.translatesAutoresizingMaskIntoConstraints =  false
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.backgroundColor = .black
-        
-        return imageView
-    }()
-    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -38,7 +27,6 @@ class DetailViewController: UIViewController {
         label.frame = CGRect(x: 0, y: 0, width: 100, height: 20)
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.numberOfLines = 0
-//        label.textColor = .red
         label.adjustsFontSizeToFitWidth = true
         
         return label
@@ -70,8 +58,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .systemPurple
         putData()
-        view.addSubview(backgroundImageView)
         view.addSubview(titleLabel)
         view.addSubview(storyLabel)
         view.addSubview(answerLabel)
@@ -97,40 +85,6 @@ class DetailViewController: UIViewController {
     }
 
     func setConstraints() {
-        
-        // backgroundImageView constrains
-        
-        NSLayoutConstraint(item: backgroundImageView,
-                           attribute: .top,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .top,
-                           multiplier: 1,
-                           constant: 0).isActive = true
-        
-        NSLayoutConstraint(item: backgroundImageView,
-                           attribute: .bottom,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .bottom,
-                           multiplier: 1,
-                           constant: 0).isActive = true
-        
-        NSLayoutConstraint(item: backgroundImageView,
-                           attribute: .leading,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .leading,
-                           multiplier: 1,
-                           constant: 0).isActive = true
-        
-        NSLayoutConstraint(item: backgroundImageView,
-                           attribute: .trailing,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .trailing,
-                           multiplier: 1,
-                           constant: 0).isActive = true
         
         // titleLabel constrains
         
