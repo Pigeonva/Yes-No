@@ -20,10 +20,8 @@ class TableViewCell: UITableViewCell {
     let cellImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints =  false
-        imageView.backgroundColor = .clear
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .black
         imageView.layer.cornerRadius = 10
         
         return imageView
@@ -46,7 +44,7 @@ class TableViewCell: UITableViewCell {
         stack.spacing = 20.0
         stack.alignment = .leading
         stack.distribution = .fillProportionally
-        stack.backgroundColor = .systemCyan
+        stack.backgroundColor = .systemPink
         stack.layer.cornerRadius = 10
         
         return stack

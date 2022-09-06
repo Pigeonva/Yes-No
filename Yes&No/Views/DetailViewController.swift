@@ -11,23 +11,11 @@ class DetailViewController: UIViewController {
     
     var viewModel: DetailViewModelType?
     
-    let backgroundImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: K.detailBackground)
-        imageView.translatesAutoresizingMaskIntoConstraints =  false
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.backgroundColor = .black
-        
-        return imageView
-    }()
-    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.frame = CGRect(x: 0, y: 0, width: 100, height: 20)
-        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
-        label.text = "Title"
+        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         label.adjustsFontSizeToFitWidth = true
         
         return label
@@ -37,9 +25,7 @@ class DetailViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.frame = CGRect(x: 0, y: 0, width: 100, height: 20)
-        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
-        label.text = "Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story Story label.numberOfLines = 0 label.numberOfLines = 0 label.numberOfLines = 0 label.numberOfLines = 0 label.numberOfLines = 0 label.numberOfLines = 0"
-        label.backgroundColor = .red
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
         
@@ -50,10 +36,8 @@ class DetailViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.frame = CGRect(x: 0, y: 0, width: 100, height: 20)
-        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
-        label.text = "Answer"
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.isHidden = true
-        label.backgroundColor = .green
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
         
@@ -73,8 +57,9 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.addSubview(backgroundImageView)
+        
+        view.backgroundColor = .systemPurple
+        putData()
         view.addSubview(titleLabel)
         view.addSubview(storyLabel)
         view.addSubview(answerLabel)
@@ -91,42 +76,15 @@ class DetailViewController: UIViewController {
             storyLabel.isHidden = false
         }
     }
+    
+    func putData() {
+        guard let viewModel = viewModel else {return}
+        titleLabel.text = viewModel.title
+        storyLabel.text = viewModel.oneStory
+        answerLabel.text = "Ответ: " + viewModel.answer
+    }
 
     func setConstraints() {
-        
-        // backgroundImageView constrains
-        
-        NSLayoutConstraint(item: backgroundImageView,
-                           attribute: .top,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .top,
-                           multiplier: 1,
-                           constant: 0).isActive = true
-        
-        NSLayoutConstraint(item: backgroundImageView,
-                           attribute: .bottom,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .bottom,
-                           multiplier: 1,
-                           constant: 0).isActive = true
-        
-        NSLayoutConstraint(item: backgroundImageView,
-                           attribute: .leading,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .leading,
-                           multiplier: 1,
-                           constant: 0).isActive = true
-        
-        NSLayoutConstraint(item: backgroundImageView,
-                           attribute: .trailing,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .trailing,
-                           multiplier: 1,
-                           constant: 0).isActive = true
         
         // titleLabel constrains
         
@@ -162,15 +120,7 @@ class DetailViewController: UIViewController {
                            toItem: titleLabel,
                            attribute: .bottom,
                            multiplier: 1,
-                           constant: view.frame.height / 20).isActive = true
-        
-        NSLayoutConstraint(item: storyLabel,
-                           attribute: .bottom,
-                           relatedBy: .lessThanOrEqual,
-                           toItem: answerButton,
-                           attribute: .top,
-                           multiplier: 1,
-                           constant: -view.frame.height / 15).isActive = true
+                           constant: view.frame.height / 35).isActive = true
         
         NSLayoutConstraint(item: storyLabel,
                            attribute: .leading,
@@ -196,15 +146,8 @@ class DetailViewController: UIViewController {
                            toItem: titleLabel,
                            attribute: .bottom,
                            multiplier: 1,
-                           constant: view.frame.height / 20).isActive = true
+                           constant: view.frame.height / 35).isActive = true
         
-        NSLayoutConstraint(item: answerLabel,
-                           attribute: .bottom,
-                           relatedBy: .lessThanOrEqual,
-                           toItem: answerButton,
-                           attribute: .top,
-                           multiplier: 1,
-                           constant: -view.frame.height / 15).isActive = true
         
         NSLayoutConstraint(item: answerLabel,
                            attribute: .leading,
@@ -230,7 +173,7 @@ class DetailViewController: UIViewController {
                            toItem: view,
                            attribute: .bottom,
                            multiplier: 1,
-                           constant: -view.frame.height / 8).isActive = true
+                           constant: -view.frame.height / 15).isActive = true
         
         NSLayoutConstraint(item: answerButton,
                            attribute: .centerX,
