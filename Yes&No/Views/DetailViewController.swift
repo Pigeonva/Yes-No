@@ -123,6 +123,14 @@ class DetailViewController: UIViewController {
                            constant: view.frame.height / 35).isActive = true
         
         NSLayoutConstraint(item: storyLabel,
+                           attribute: .bottom,
+                           relatedBy: .equal,
+                           toItem: answerButton,
+                           attribute: .top,
+                           multiplier: 1,
+                           constant: -view.frame.height / 35).isActive = true
+        
+        NSLayoutConstraint(item: storyLabel,
                            attribute: .leading,
                            relatedBy: .equal,
                            toItem: view,
@@ -147,6 +155,14 @@ class DetailViewController: UIViewController {
                            attribute: .bottom,
                            multiplier: 1,
                            constant: view.frame.height / 35).isActive = true
+        
+        NSLayoutConstraint(item: answerLabel,
+                           attribute: .bottom,
+                           relatedBy: .equal,
+                           toItem: answerButton,
+                           attribute: .top,
+                           multiplier: 1,
+                           constant: -view.frame.height / 35).isActive = true
         
         
         NSLayoutConstraint(item: answerLabel,
@@ -190,5 +206,13 @@ class DetailViewController: UIViewController {
                            attribute: .notAnAttribute,
                            multiplier: 1,
                            constant: 200).isActive = true
+        
+        NSLayoutConstraint(item: answerButton,
+                           attribute: .height,
+                           relatedBy: .equal,
+                           toItem: nil,
+                           attribute: .notAnAttribute,
+                           multiplier: 1,
+                           constant: 50).isActive = true
     }
 }
