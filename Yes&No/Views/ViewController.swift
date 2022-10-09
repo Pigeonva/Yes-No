@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var viewModel: ViewModelType?
+    var viewModel = ViewModel()
     
     let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
@@ -165,23 +165,31 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.numberOfItems() ?? 0
+        return viewModel.categoryImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.mainCollectionCell, for: indexPath) as? MainCollectionViewCell
-        guard let collectionViewCell = cell, let viewModel = viewModel else {return UICollectionViewCell()}
-        let cellViewModel = viewModel.cellViewModel(for: indexPath)
-        collectionViewCell.viewModel = cellViewModel
+        guard let collectionViewCell = cell else {return UICollectionViewCell()}
+        
+        viewModel.setup(indexPath: indexPath)
+        
+        viewModel.categoryModel.bind { models in
+                    DispatchQueue.main.async {
+                        collectionViewCell.imageView.image = models[indexPath.row].image
+                        collectionViewCell.titleLabel.text = models[indexPath.row].title
+                        collectionViewCell.descriptionLabel.text = models[indexPath.row].description
+                    }
+                }
         
         return collectionViewCell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let viewModel = viewModel else {return}
-        viewModel.selectRow(at: indexPath)
+        
         let tableVC = TableViewController()
-        tableVC.viewModel = viewModel.viewModelForSelectedRow()
+        tableVC.viewModel.currentIndex = indexPath.row
+
         navigationController?.pushViewController(tableVC, animated: true)
     }
 }

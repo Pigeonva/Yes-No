@@ -9,7 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    var viewModel: DetailViewModelType?
+    var viewModel = DetailViewModel()
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -47,7 +47,8 @@ class DetailViewController: UIViewController {
     let answerButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Показать", for: .normal)
+        button.setTitle("Показать ответ", for: .normal)
+        button.setTitle("Скрыть ответ", for: .selected)
         button.backgroundColor = .systemPink
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
@@ -58,8 +59,15 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.setup()
+        
+        viewModel.story.bind {[weak self] model in
+            self?.titleLabel.text = model?.title
+            self?.storyLabel.text = model?.story
+            self?.answerLabel.text = model?.answer
+        }
+        
         view.backgroundColor = .systemPurple
-        putData()
         view.addSubview(titleLabel)
         view.addSubview(storyLabel)
         view.addSubview(answerLabel)
@@ -69,21 +77,16 @@ class DetailViewController: UIViewController {
     
     @objc func buttonTapped() {
         if answerLabel.isHidden {
+            answerButton.isSelected = true
             storyLabel.isHidden = true
             answerLabel.isHidden = false
         } else {
+            answerButton.isSelected = false
             answerLabel.isHidden = true
             storyLabel.isHidden = false
         }
     }
     
-    func putData() {
-        guard let viewModel = viewModel else {return}
-        titleLabel.text = viewModel.title
-        storyLabel.text = viewModel.oneStory
-        answerLabel.text = "Ответ: " + viewModel.answer
-    }
-
     func setConstraints() {
         
         // titleLabel constrains
