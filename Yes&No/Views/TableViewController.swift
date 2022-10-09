@@ -9,7 +9,7 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-    var viewModel: TableViewModel
+    var viewModel =  TableViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,27 +19,35 @@ class TableViewController: UITableViewController {
         
     }
 
-    // MARK: - Table view data source
+//     MARK: - Table view data source
 
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return viewModel?.numberOfRows() ?? 0
-//    }
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: K.tableViewCell, for: indexPath) as? TableViewCell
-//        guard let cell = cell, let viewModel = viewModel else {return UITableViewCell()}
-//        cell.viewModel = viewModel.cellViewModel(for: indexPath)
-//
-//        return cell
-//    }
-//
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        guard let viewModel = viewModel else {return}
-//        viewModel.selectRow(at: indexPath)
-//        let detailVC = DetailViewController()
-//        detailVC.viewModel = viewModel.viewModelForSelectedRow()
-//        navigationController?.pushViewController(detailVC, animated: true)
-//    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return viewModel.storyImages[0].count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.tableViewCell, for: indexPath) as? TableViewCell
+        guard let cell = cell else {return UITableViewCell()}
+        
+        viewModel.setup(indexPath: indexPath)
+        
+        viewModel.stories.bind { models in
+            DispatchQueue.main.async {
+                cell.cellImageView.image = models[indexPath.row].image
+                cell.nameLabel.text = models[indexPath.row].title
+            }
+        }
+
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let detailVC = DetailViewController()
+        detailVC.viewModel.categoryIndex = viewModel.currentIndex
+        detailVC.viewModel.storyIndex = indexPath.row
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 
 }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3522FC5328F3314800AB9EAC /* YesNo.json in Resources */ = {isa = PBXBuildFile; fileRef = 3522FC5228F3314700AB9EAC /* YesNo.json */; };
-		3522FC5528F331AF00AB9EAC /* Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3522FC5428F331AF00AB9EAC /* Trash.swift */; };
 		3522FC5828F3393900AB9EAC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3522FC5728F3393900AB9EAC /* DataManager.swift */; };
 		3522FC5A28F33C8100AB9EAC /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3522FC5928F33C8100AB9EAC /* Bindable.swift */; };
 		3522FC5C28F33E9700AB9EAC /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3522FC5B28F33E9700AB9EAC /* CategoryModel.swift */; };
@@ -25,14 +24,12 @@
 		35284DFD28C27369007458E7 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35284DFC28C27369007458E7 /* TableViewModel.swift */; };
 		35284DFF28C274D1007458E7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35284DFE28C274D1007458E7 /* Model.swift */; };
 		35284E0128C39833007458E7 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35284E0028C39833007458E7 /* TableViewCell.swift */; };
-		35284E0328C39919007458E7 /* TableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35284E0228C39919007458E7 /* TableViewCellViewModel.swift */; };
 		35284E0728C63F3F007458E7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35284E0628C63F3F007458E7 /* DetailViewController.swift */; };
 		35284E0928C63F66007458E7 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35284E0828C63F66007458E7 /* DetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3522FC5228F3314700AB9EAC /* YesNo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = YesNo.json; sourceTree = "<group>"; };
-		3522FC5428F331AF00AB9EAC /* Trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trash.swift; sourceTree = "<group>"; };
 		3522FC5728F3393900AB9EAC /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		3522FC5928F33C8100AB9EAC /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		3522FC5B28F33E9700AB9EAC /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
@@ -51,7 +48,6 @@
 		35284DFC28C27369007458E7 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
 		35284DFE28C274D1007458E7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		35284E0028C39833007458E7 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		35284E0228C39919007458E7 /* TableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModel.swift; sourceTree = "<group>"; };
 		35284E0628C63F3F007458E7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		35284E0828C63F66007458E7 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,7 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				3522FC5228F3314700AB9EAC /* YesNo.json */,
-				3522FC5428F331AF00AB9EAC /* Trash.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -136,7 +131,6 @@
 			children = (
 				35284DEC28BFC2A5007458E7 /* ViewModel.swift */,
 				35284DFC28C27369007458E7 /* TableViewModel.swift */,
-				35284E0228C39919007458E7 /* TableViewCellViewModel.swift */,
 				35284E0828C63F66007458E7 /* DetailViewModel.swift */,
 			);
 			path = ViewModels;
@@ -223,7 +217,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3522FC5528F331AF00AB9EAC /* Trash.swift in Sources */,
 				3522FC5E28F37B9C00AB9EAC /* StoriesModel.swift in Sources */,
 				3522FC5828F3393900AB9EAC /* DataManager.swift in Sources */,
 				35284E0128C39833007458E7 /* TableViewCell.swift in Sources */,
@@ -233,7 +226,6 @@
 				3522FC5A28F33C8100AB9EAC /* Bindable.swift in Sources */,
 				35284DE728BFC104007458E7 /* MainCollectionViewCell.swift in Sources */,
 				35284E0928C63F66007458E7 /* DetailViewModel.swift in Sources */,
-				35284E0328C39919007458E7 /* TableViewCellViewModel.swift in Sources */,
 				35284E0728C63F3F007458E7 /* DetailViewController.swift in Sources */,
 				3522FC5C28F33E9700AB9EAC /* CategoryModel.swift in Sources */,
 				35284DF928C270A2007458E7 /* TableViewController.swift in Sources */,

@@ -8,14 +8,6 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-    
-//    weak var viewModel: TableViewCellViewModelType? {
-//        didSet {
-//            guard let viewModel = viewModel else {return}
-//            cellImageView.image = viewModel.image
-//            nameLabel.text = viewModel.title
-//        }
-//    }
 
     let cellImageView: UIImageView = {
         let imageView = UIImageView()

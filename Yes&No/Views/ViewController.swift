@@ -174,11 +174,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         viewModel.setup(indexPath: indexPath)
         
-        viewModel.categoryModel.bind { model in
+        viewModel.categoryModel.bind { models in
                     DispatchQueue.main.async {
-                        collectionViewCell.imageView.image = model[indexPath.row].image
-                        collectionViewCell.titleLabel.text = model[indexPath.row].title
-                        collectionViewCell.descriptionLabel.text = model[indexPath.row].description
+                        collectionViewCell.imageView.image = models[indexPath.row].image
+                        collectionViewCell.titleLabel.text = models[indexPath.row].title
+                        collectionViewCell.descriptionLabel.text = models[indexPath.row].description
                     }
                 }
         
@@ -186,11 +186,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        guard let viewModel = viewModel else {return}
-//        viewModel.selectRow(at: indexPath)
-//        let tableVC = TableViewController()
-//        tableVC.viewModel = viewModel.viewModelForSelectedRow()
-//        navigationController?.pushViewController(tableVC, animated: true)
+        
+        let tableVC = TableViewController()
+        tableVC.viewModel.currentIndex = indexPath.row
+
+        navigationController?.pushViewController(tableVC, animated: true)
     }
 }
 

@@ -9,33 +9,37 @@ import UIKit
 
 class TableViewModel {
     
-    var stories: Array<Story>
+    var stories = Bindable<[StoriesModel]>([])
+    var currentIndex: Int?
     
-    private var selectedIndexPath: IndexPath?
+    let storyImages = [
+        [UIImage(named: K.easyOne),
+         UIImage(named: K.easyTwo),
+         UIImage(named: K.easyThree),
+         UIImage(named: K.easyFour),
+         UIImage(named: K.easyFive)],
+        [UIImage(named: K.mediumOne),
+         UIImage(named: K.mediumTwo),
+         UIImage(named: K.mediumThree),
+         UIImage(named: K.mediumFour),
+         UIImage(named: K.mediumFive),],
+        [UIImage(named: K.hardOne),
+         UIImage(named: K.hardTwo),
+         UIImage(named: K.hardThree),
+         UIImage(named: K.hardFour),
+         UIImage(named: K.hardFive)]
+    ]
     
-    init(stories: Array<Story>) {
-        self.stories = stories
+    func setup(indexPath: IndexPath) {
+        DataManager.shared.fetchData {[weak self] model in
+            guard let index = self?.currentIndex else { return }
+            guard let image = self?.storyImages[index][indexPath.row] else { return }
+            let title = model.category[index].stories[indexPath.row].title
+            let newModel = StoriesModel(image: image, title: title, story: "", answer: "")
+            
+            self?.stories.value.append(newModel)
+            
+        }
     }
-    
-    func numberOfRows() -> Int {
-        return stories.count
-    }
-    
-    func cellViewModel(for indexPath: IndexPath) -> TableViewCellViewModelType? {
-        let story = stories[indexPath.row]
-        
-        return TableViewCellViewModel(story: story)
-    }
-    
-    func viewModelForSelectedRow() -> DetailViewModelType? {
-        guard let selectedIndexPath = selectedIndexPath else {return nil}
-
-        return DetailViewModel(story: stories[selectedIndexPath.row])
-    }
-    
-    func selectRow(at indexPath: IndexPath) {
-        self.selectedIndexPath = indexPath
-    }
-    
     
 }
