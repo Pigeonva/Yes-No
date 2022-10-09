@@ -9,7 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    var viewModel: DetailViewModelType?
+//    var viewModel: DetailViewModelType?
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -59,7 +59,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemPurple
-        putData()
+//        putData()
         view.addSubview(titleLabel)
         view.addSubview(storyLabel)
         view.addSubview(answerLabel)
@@ -77,12 +77,12 @@ class DetailViewController: UIViewController {
         }
     }
     
-    func putData() {
-        guard let viewModel = viewModel else {return}
-        titleLabel.text = viewModel.title
-        storyLabel.text = viewModel.oneStory
-        answerLabel.text = "Ответ: " + viewModel.answer
-    }
+//    func putData() {
+//        guard let viewModel = viewModel else {return}
+//        titleLabel.text = viewModel.title
+//        storyLabel.text = viewModel.oneStory
+//        answerLabel.text = "Ответ: " + viewModel.answer
+//    }
 
     func setConstraints() {
         

@@ -7,20 +7,20 @@
 
 import UIKit
 
-class TableViewCellViewModel {
-    
-    var oneStory: Story
-    
-    var image: UIImage {
-        return oneStory.image
-    }
-    
-    var title: String {
-        return oneStory.title
-    }
-    
-    init(story: Story) {
-        self.oneStory = story
-    }
-    
-}
+//class TableViewCellViewModel {
+//    
+//    var oneStory: Story
+//    
+//    var image: UIImage {
+//        return oneStory.image
+//    }
+//    
+//    var title: String {
+//        return oneStory.title
+//    }
+//    
+//    init(story: Story) {
+//        self.oneStory = story
+//    }
+//    
+//}

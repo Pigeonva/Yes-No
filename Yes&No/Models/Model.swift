@@ -8,16 +8,10 @@
 import UIKit
 
 class Model: Codable {
-    let category: StoryType
+    let category: [StoryType]
 }
 
 class StoryType: Codable {
-    let easy: StoryInfo
-    let medium: StoryInfo
-    let hard: StoryInfo
-}
-
-class StoryInfo: Codable {
     let title: String
     let description: String
     let stories: [Story]

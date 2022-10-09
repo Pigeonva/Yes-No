@@ -9,30 +9,22 @@ import UIKit
 
 class ViewModel {
     
-    private var selectedIndexPath: IndexPath?
-    
-    var categoryImages = [UIImage()]
+    var categoryImages = [UIImage(named: K.easyImage), UIImage(named: K.mediumImage), UIImage(named: K.hardImage)]
     
     var storyImage = [UIImage()]
+    
+    var categoryModel = Bindable<[CategoryModel]>([])
+    
+    func setup(indexPath: IndexPath) {
+        DataManager.shared.fetchData { model in
+            guard let image = self.categoryImages[indexPath.row] else { return }
+            let title = model.category[indexPath.row].title
+            let description = model.category[indexPath.row].description
+            let newModel = CategoryModel(image: image, title: title, description: description)
+            
+            self.categoryModel.value.append(newModel)
+        }
+    }
 
     
-    func numberOfItems() -> Int {
-        return categories.count
-    }
-    
-    func cellViewModel(for indexPath: IndexPath) -> CollectionViewCellViewModelType? {
-        let category = categories[indexPath.row]
-        
-        return CollectionViewCellViewModel(category: category)
-    }
-    
-    func viewModelForSelectedRow() -> TableViewModelType? {
-        guard let selectedIndexPath = selectedIndexPath else {return nil}
-        
-        return TableViewModel(stories: stories[selectedIndexPath.row])
-    }
-    
-    func selectRow(at indexPath: IndexPath) {
-        self.selectedIndexPath = indexPath
-    }
 }
