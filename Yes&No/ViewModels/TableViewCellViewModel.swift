@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TableViewCellViewModel: TableViewCellViewModelType {
+class TableViewCellViewModel {
     
     var oneStory: Story
     

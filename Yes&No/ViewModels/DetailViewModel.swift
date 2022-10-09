@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DetailViewModel: DetailViewModelType {
+class DetailViewModel {
 
     var story: Story
     

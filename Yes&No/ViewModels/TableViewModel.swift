@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TableViewModel: TableViewModelType {
+class TableViewModel {
     
     var stories: Array<Story>
     

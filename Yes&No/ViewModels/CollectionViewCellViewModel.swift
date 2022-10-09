@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CollectionViewCellViewModel: CollectionViewCellViewModelType {
+class CollectionViewCellViewModel {
     
     var category: Category
     
