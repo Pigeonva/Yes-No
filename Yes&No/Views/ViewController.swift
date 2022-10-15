@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    //MARK: - let/var
+    
     var viewModel = ViewModel()
     
     let backgroundImageView: UIImageView = {
@@ -34,6 +36,8 @@ class ViewController: UIViewController {
         
         return label
     }()
+    
+    //MARK: - Lifecycle methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +49,8 @@ class ViewController: UIViewController {
         view.addSubview(titleLabel)
         setConstraints()
     }
+    
+    //MARK: - Methods
     
     func createMainCollectionView() {
         let layout = UICollectionViewFlowLayout()
